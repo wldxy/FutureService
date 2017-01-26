@@ -36,8 +36,13 @@ class Predict:
 
         delta = dt.timedelta(minutes=15)
         ans = list()
+        count = 0
         for i in self.data:
-            ans.append(Price(time=i[0], price=float(i[1]), predict=float(i[1])+55))
+            count += 1
+            if count < len(result):
+                ans.append(Price(time=i[0], price=float(i[1]), predict=float(result[count])))
+            else:
+                ans.append(Price(time=i[0], price=float(i[1]), predict=float(i[1])))
         temp = self.end
         for i in range(num):
             temp += delta

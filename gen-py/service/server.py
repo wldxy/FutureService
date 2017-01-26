@@ -54,7 +54,7 @@ class MyTBinaryProtocolFactory(TBinaryProtocol.TBinaryProtocolFactory):
 
 handler = ServiceHandler()
 processor = FutureService.Processor(handler)
-transport = TSocket.TServerSocket("192.168.1.109", "8888")
+transport = TSocket.TServerSocket("localhost", "8888")
 tfactory = TTransport.TBufferedTransportFactory()
 pfactory = MyTBinaryProtocolFactory()
 
